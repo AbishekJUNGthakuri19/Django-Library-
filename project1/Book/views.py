@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,HttpResponse
 from .models import Book
 from .forms import BookCreate
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 # Create your views here.
 
@@ -23,3 +24,8 @@ def uploadform(request):
     else:
       return render(request, 'uploadForm.html',{'upload_form':upload})
 
+
+
+def logoutt(request):
+    logout(request)
+    return redirect('login')
