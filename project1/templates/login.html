@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login pages</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+   
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <form method="post" action="#">
+                {% csrf_token %}
+                <h3>Login</h3>
+                <input class="fill-up" type="text" placeholder="username" name="username">
+                <input class="fill-up" type="password" placeholder="password" name="pass">
+                <input class="login-btn" type="submit" value="Login">
+                <a href="#" class="forgot-btn">Forget password?</a>
+                <a href="{% url 'signup' %}" class="create-btn">Create new account</a>
+                {% if error_message %}
+                <p>{{ error_message }}</p>
+                {% endif %}
+            </form>
+          
+        </div>
+    </div>
+</body>
+</html>
