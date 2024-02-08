@@ -6,7 +6,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('library',views.library,name='library'),
     path('uploadform',views.uploadform,name='uploadform'),
-    path('logoutt' , views.logoutt , name='logoutt')
+    path('logoutt' , views.logoutt , name='logoutt'),
+    path('update/<int:book_id>', views.update_book, name='upadte'),
 ]
 
 if DEBUG:

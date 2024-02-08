@@ -29,3 +29,20 @@ def uploadform(request):
 def logoutt(request):
     logout(request)
     return redirect('login')
+
+
+def update_book(request, book_id):
+    book_id = int(book_id)
+    try:
+        book_shelf = Book.objects.get(id = book_id)
+
+    except Book.DoesNotExist:
+        return redirect('library')
+    
+    book_form = BookCreate(request.POST or None, instance=book_shelf)
+
+    if book_form.is_valid():
+        book_form.save()
+        return redirect('library')
+    
+    return render(request, 'uploadForm.html',{'upload_form':book_form})
