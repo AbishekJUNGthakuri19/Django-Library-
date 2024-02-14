@@ -7,7 +7,9 @@ urlpatterns = [
     path('library',views.library,name='library'),
     path('uploadform',views.uploadform,name='uploadform'),
     path('logoutt' , views.logoutt , name='logoutt'),
-    path('update/<int:book_id>', views.update_book, name='upadte'),
+    path('update/<int:book_id>', views.update_book, name='update'),
+    path('delete/<int:book_id>', views.delete_book, name='delete'),
+    path('email',views.send_template_email,name='email')
 ]
 
 if DEBUG:

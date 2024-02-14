@@ -57,6 +57,12 @@
           <div class="navbar-text display-6  text-white travel">Welcome!</div>
           {% endif %}
         </div>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'email' %}">
+            <h4>Email</h4>
+          </a>
+        </li>
     </div>
   </nav>
 
@@ -78,10 +84,11 @@
             <p class="card-title">{{book.author}} </p>
             <center>
               <a href="update/{{book.id}}" class="btn btn-primary" id="{{book.id}}">Edit</a>
-              <a href="" class="btn btn-danger" id="">Delete</a>
+              <a href="delete/{{book.id}}" class="btn btn-danger" id="">Delete</a>
             </center>
           </div>
         </div>
+        
 
       </div>
       {% endfor %}

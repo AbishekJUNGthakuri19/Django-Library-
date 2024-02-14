@@ -20,7 +20,7 @@ def signup(request):
         else:
             if User.objects.filter(username = uname).exists():
                 erorr_message = "Name is taken"
-            if User.objects.filter(email = email).exists():
+            elif User.objects.filter(email = email).exists():
                 erorr_message = "Email is taken"
             else:
                 myuser = User.objects.create_user(uname,email,pass1)
